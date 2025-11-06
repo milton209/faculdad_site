@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrinho de Compras - Epic Games Clone</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+
+    <aside class="sidebar">
+    <div class="sidebar-top">
+        
+        <div class="logo">
+            <img src="imagens/image-removebg-preview.png" alt="Logo da Empresa">
+        </div>
+
+        <ul class="nav-icons">
+            <li><a href="index.html"><i class="fas fa-home"></i><span class="tooltip">Início</span></a></li>
+            
+            <li class="active"><a href="cart.html"><i class="fas fa-shopping-cart"></i><span class="tooltip">Carrinho</span></a></li>
+            
+            <li><a href="search.html"><i class="fas fa-search"></i><span class="tooltip">Pesquisa</span></a></li>
+        </ul>
+    </div>
+    <div class="sidebar-bottom">
+        <ul class="nav-icons">
+            <li><a href="#" id="profile-btn"><i class="fas fa-user-circle"></i><span class="tooltip">Perfil</span></a></li>
+            
+            <li><a href="https://chat.whatsapp.com/JuzU3601avhEgAJPMYNbnW?mode=ems_wa_t"><i
+                        class="fas fa-headset"></i><span class="tooltip">Suporte</span></a></li>
+        </ul>
+    </div>
+</aside>
+
+    <div class="main-content-wrapper">
+        <header class="header">
+            <nav class="navbar">
+                <ul class="nav-links">
+                    <li><a href="index.html">Loja</a></li>
+                    <li><a href="#">Notícias</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main class="main-content">
+            <section class="cart-section games-section">
+                <div class="section-header">
+                    <h2>Seu Carrinho de Compras</h2>
+                </div>
+                <div id="cart-items-container">
+                    <p id="empty-cart-message" style="color: var(--cinza-claro); text-align: center;">Seu carrinho está
+                        vazio.</p>
+                </div>
+                <div id="cart-summary"
+                    style="margin-top: 40px; padding: 20px; background-color: var(--preto-secundario); border-radius: 10px;">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 15px;">
+                        <h3>Total Estimado:</h3>
+                        <h3 id="cart-total" style="color: var(--laranja-escuro);">R$ 0,00</h3>
+                    </div>
+                    <button class="btn-primary" style="width: 100%;">Finalizar Compra</button>
+                    <button id="clear-cart-btn" class="btn-secondary"
+                        style="width: 100%; margin-top: 10px; background-color: #333; color: var(--branco-detalhe); border: none;">Limpar
+                        Carrinho</button>
+                </div>
+            </section>
+        </main>
+        <footer class="footer">
+            <p>&copy; 2025 Epic Games. Todos os direitos reservados.</p>
+        </footer>
+    </div>
+    <!-- O script de carrinho que contém a lógica de exibição e checkout -->
+    <script src="script-cart.js"></script>
+
+    <div id="auth-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn">&times;</span>
+
+        <div class="modal-tabs">
+            <button class="tab-btn active" data-tab="login">Login</button>
+            <button class="tab-btn" data-tab="signup">Cadastrar</button>
+        </div>
+
+        <div id="login-form" class="auth-form active">
+            <form id="login-form-modal">
+                <div class="form-group"> <label for="login-email">E-mail</label> <input type="email"
+                        id="login-email" required autocomplete="email"> </div>
+                <div class="form-group"> <label for="login-password">Senha</label> <input type="password"
+                        id="login-password" required autocomplete="current-password"> </div>
+                <a href="#" id="forgot-password-link" class="forgot-password-link">Esqueceu a senha?</a>
+                <p id="login-error-message" class="error-message" style="display: none;"></p>
+                <button type="submit" class="btn-primary">Entrar</button>
+            </form>
+        </div>
+
+        <div id="signup-form" class="auth-form">
+            <form id="signup-form-modal">
+                <div class="form-group"> <label for="signup-name">Nome de Usuário</label> <input type="text"
+                        id="signup-name" name="username" required autocomplete="username"> </div>
+                <div class="form-group"> <label for="signup-email">E-mail</label> <input type="email"
+                        id="signup-email" name="email" required autocomplete="email"> </div>
+                <div class="form-group"> <label for="signup-password">Senha</label> <input type="password"
+                        id="signup-password" name="password" required autocomplete="new-password"> </div>
+                <button type="submit" class="btn-primary">Criar Conta</button>
+            </form>
+        </div>
+
+        <div id="recover-form" class="auth-form" style="display: none;">
+            <h3 style="text-align: center; margin-bottom: 20px; font-weight: 600;">Recuperar Senha</h3>
+            <form id="recover-form-modal">
+                <div class="form-group">
+                    <label for="recover-email">E-mail</label>
+                    <input type="email" id="recover-email" required autocomplete="email"
+                        placeholder="Digite seu e-mail cadastrado">
+                </div>
+                <p id="recover-message" class="error-message" style="display: none;"></p>
+                <button type="submit" class="btn-primary">Enviar Link</button>
+            </form>
+            <a href="#" id="back-to-login-link">Voltar ao Login</a>
+        </div>
+
+    </div>
+</div>
+
+</body>
+
+</html>
